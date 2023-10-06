@@ -1,7 +1,8 @@
 import fs from "fs";
+import { yarg } from "./config/plugins/args.plugin";
 
-const base = 5;
-const limit = 10;
+const { b: base, l: limit, s: showTable } = yarg;
+
 let outputMessage = "";
 const header = `
 ===============================================
@@ -14,7 +15,7 @@ for (let i = 1; i <= limit; i++) {
 }
 
 outputMessage = header + outputMessage;
-console.log(outputMessage);
+if (showTable) console.log(outputMessage);
 
 const outputPath = `outputs`;
 
